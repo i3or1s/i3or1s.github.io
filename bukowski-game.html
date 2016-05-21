@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test game</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+        }
+        .court {
+            position: absolute;
+            top: 4.84%;
+            height: 89.04%;
+            width: 100%;
+            z-index: 999;
+            overflow: hidden;
+        }
+        .ball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: black;;
+        }
+        .col{
+            height: 100%;
+            width:1%;
+            float: left;
+        }
+        .col:nth-child(even){
+            background-color: black;
+        }
+        .col:nth-child(17n+1){
+            width: 5.6%
+        }
+            /*89.04*/
+            /*0.78*/
+            .col:nth-child(17n+1) > .row:nth-child(3){
+                height: 11.48%;
+            }
+            .col:nth-child(17n+1) > .row:nth-child(5){
+                height: 41.63%;
+                background-color: red;
+            }
+            .col:nth-child(17n+1) > .row:nth-child(7){
+                height: 33.93%;
+            }
+            .col:nth-child(17n+1) > .row:nth-child(9){
+                height: 5.12%;
+                background-color: #0100ff;
+            }
+        .col:nth-child(17n+3){
+            width: 6%
+        }
+            .col:nth-child(17n+3) > .row:nth-child(3){
+                height: 89.04%;
+            }
+            .col:nth-child(17n+3) > .row:nth-child(5){
+                height: 5.12%;
+            }
+        .col:nth-child(17n+5){
+            width: 20%
+        }
+            .col:nth-child(17n+5) > .row:nth-child(3){
+                height: 30.77%;
+                background-color: red;
+            }
+            .col:nth-child(17n+5) > .row:nth-child(5){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+5) > .row:nth-child(7){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+5) > .row:nth-child(9){
+                height: 39.87%;
+            }
+            .col:nth-child(17n+5) > .row:nth-child(11){
+                height: 5.12%;
+            }
+        .col:nth-child(17n+7){
+            width: 3.2%
+        }
+            .col:nth-child(17n+7) > .row:nth-child(1){
+                background-color: #FE0001;
+            }
+            .col:nth-child(17n+7) > .row:nth-child(3){
+                height: 30.77%;
+            }
+            .col:nth-child(17n+7) > .row:nth-child(5){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+7) > .row:nth-child(7){
+                height: 48.57%;
+            }
+            .col:nth-child(17n+7) > .row:nth-child(9){
+                height: 5.12%;
+                background-color: #FFE600;
+            }
+        .col:nth-child(17n+9){
+            width: 16.4%
+        }
+            .col:nth-child(17n+9) > .row:nth-child(3){
+                height: 30.77%;
+            }
+            .col:nth-child(17n+9) > .row:nth-child(5){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+9) > .row:nth-child(7){
+                height: 48.57%;
+            }
+            .col:nth-child(17n+9) > .row:nth-child(9){
+                height: 5.12%;
+                background-color: red;
+            }
+        .col:nth-child(17n+11){
+            width: 7.6%
+        }
+            .col:nth-child(17n+11) > .row:nth-child(1){
+                background-color: #FEE600;
+            }
+            .col:nth-child(17n+11) > .row:nth-child(3){
+                height: 30.77%;
+                background-color: #FEE600;
+            }
+            .col:nth-child(17n+11) > .row:nth-child(5){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+11) > .row:nth-child(7){
+                height: 48.57%;
+            }
+            .col:nth-child(17n+11) > .row:nth-child(9){
+                height: 5.12%;
+                background-color: #FE0000;
+            }
+        .col:nth-child(17n+13){
+            width: 22.4%
+        }
+            .col:nth-child(17n+13) > .row:nth-child(1){
+                background-color: #0400FE;
+            }
+            .col:nth-child(17n+13) > .row:nth-child(3){
+                height: 30.77%;
+                background-color: red;
+            }
+            .col:nth-child(17n+13) > .row:nth-child(5){
+                height: 7.7%;
+            }
+            .col:nth-child(17n+13) > .row:nth-child(7){
+                height: 28.2%;
+            }
+            .col:nth-child(17n+13) > .row:nth-child(9){
+                height: 19.39%;
+                background-color: #FEE600;
+            }
+            .col:nth-child(17n+13) > .row:nth-child(11){
+                height: 5.12%;
+            }
+        .col:nth-child(17n+15){
+            width: 6%
+        }
+            .col:nth-child(17n+15) > .row:nth-child(3){
+                height: 89.04%;
+            }
+            .col:nth-child(17n+15) > .row:nth-child(5){
+                height: 5.12%;
+            }
+        .col:nth-child(17n+17){
+            width: 4.8%
+        }
+            .col:nth-child(17n+17) > .row:nth-child(3){
+                height: 10.89%;
+                background-color: red;
+            }
+            .col:nth-child(17n+17) > .row:nth-child(5){
+                height: 41%;
+            }
+            .col:nth-child(17n+17) > .row:nth-child(7){
+                height: 35.15%;
+                background-color: #FEE600;
+            }
+            .col:nth-child(17n+17) > .row:nth-child(9){
+                height: 5.12%;
+            }
+        .col > .row {
+            height: 1%;
+        }
+        .col > .row:nth-child(1) {
+            height: 3.84%;
+        }
+        .col > .row:nth-child(even) {
+            background-color: black;
+        }
+        .stick {
+            height: 90%;
+            background-color: #0100FF;
+        }
+        .stick-holder {
+            position: relative;
+        }
+        .line {
+            background-color: black;
+            height: 5%;
+        }
+        #scoreLeft, #scoreRight {
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="col">
+    <div class="row" id="scoreLeft">0</div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row">
+        <div id="left-stick" class="stick-holder">
+            <div class="line"></div>
+            <div class="stick"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col">
+</div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row">
+        <div id="right-stick" class="stick-holder">
+            <div class="line"></div>
+            <div class="stick"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="col"></div>
+<div class="col">
+    <div class="row" id="scoreRight">0</div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+</div>
+<div class="court" id="court">
+    <div class="ball" id="ball"></div>
+</div>
+<script>
+    document.body.style.height = document.body.scrollHeight + "px";
+    var rightStick = document.querySelector('#right-stick');
+    var leftStick = document.querySelector('#left-stick');
+    var courtDom = document.querySelector('#court');
+    var ballDom = document.querySelector('#ball');
+
+    var stick = {
+        domElem: null,
+        top: 0,
+        size: 29,
+        step: 3,
+        move: function(directionUp){
+            if(true == directionUp){
+                if(this.top >= 0) {
+                    if(this.top - this.step <= 0 ) this.top = 0;
+                    else this.top -= this.step;
+                }
+            } else {
+                if(this.top <= 100-this.size) {
+                    if(this.top + this.step >= 100-this.size ) this.top = 100-this.size;
+                    else this.top += this.step;
+                }
+            }
+        },
+        update: function () {
+            this.domElem.style.top = this.top + "%";
+        },
+        init: function(dom, top, size){
+            this.domElem = dom;
+            if(top) this.top = top;
+            if(size) this.size = size;
+            this.domElem.style.height = this.size + "%";
+            this.domElem.style.top = this.top + "%";
+        }
+    };
+
+    var control = {
+        up: null,
+        upPressed: false,
+        downPressed: false,
+        down: null,
+        stick: null,
+        init: function(up, down, stick){
+            this.up = up;
+            this.down = down;
+            this.stick = stick;
+            var me = this;
+            document.addEventListener('keydown', function(e){
+                if(parseInt(e.keyCode) == me.up && false == me.upPressed){
+                    me.upPressed = true;
+                }
+                if(parseInt(e.keyCode) == me.down && false == me.downPressed){
+                    me.downPressed = true;
+                }
+                if(parseInt(e.keyCode) == 32){
+                    if(ball.moveX > 0)
+                        ball.moveX = ball.moveX + 0.1;
+                    else
+                        ball.moveX = ball.moveX - 0.1;
+                }
+
+            });
+            document.addEventListener('keyup', function(e){
+                if(parseInt(e.keyCode) == me.up){
+                    me.upPressed = false;
+                }
+                if(parseInt(e.keyCode) == me.down){
+                    me.downPressed = false;
+                }
+            });
+        },
+        update: function(){
+            var me = this;
+            if(me.upPressed) me.stick.move(true);
+            if(me.downPressed) me.stick.move(false);
+        }
+    };
+
+    var ball = {
+        domElem: null,
+        courtHeight: null,
+        courtWidth: null,
+        width: 0,
+        height: 0,
+        moveX: 0.3,
+        moveY: 0.5,
+        top: 0,
+        left: 0,
+
+        init: function(ball, court){
+            this.courtHeight = court.clientHeight;
+            this.width = this.height = parseInt(court.clientHeight / 10);
+            ball.style.width = this.width + "px";
+            ball.style.height = this.height + "px";
+            this.domElem = ball;
+            this.top = 50;
+            this.left = 50;
+        },
+        move: function(){
+            this.top = this.top + this.moveY;
+            if(parseInt(this.domElem.offsetTop) > (this.courtHeight - this.height) && this.moveY > 0) {
+                this.moveY = -1 * this.moveY;
+            }
+            if(this.top < 0 && this.moveY < 0) {
+                this.moveY = -1 * this.moveY;
+            }
+
+            this.left = this.left + this.moveX;
+//            if(this.left >= this.courtWidth - this.width) this.moveX = -1 * this.moveX;
+//            if(this.left <= 0) this.moveX = -1 * this.moveX;
+
+        },
+        update: function(){
+            this.domElem.style.top = this.top + "%";
+            this.domElem.style.left = this.left + "%";
+            this.move();
+        }
+    };
+
+    ball.init(ballDom, courtDom);
+
+    var playerOneControls = Object.create(control);
+    var playerOneStick = Object.create(stick);
+    playerOneStick.init(rightStick, 20, 29);
+    playerOneControls.init(38, 40, playerOneStick);
+
+    var playerTwoControls = Object.create(control);
+    var playerTwoStick = Object.create(stick);
+    playerTwoStick.init(leftStick, 20, 29);
+    playerTwoControls.init(87, 83, playerTwoStick);
+
+    setInterval(function(){
+            playerOneStick.update();
+            playerTwoStick.update();
+            playerOneControls.update();
+            playerTwoControls.update();
+            ball.update();
+            if(doOverlap(ballDom.getBoundingClientRect(), rightStick.getBoundingClientRect())) {
+                if(ball.moveX > 0)
+                    ball.moveX = ball.moveX * -1;
+            }
+            if(doOverlap(ballDom.getBoundingClientRect(), leftStick.getBoundingClientRect())) {
+                if(ball.moveX < 0)
+                    ball.moveX = ball.moveX * -1;
+            }
+            if(ballDom.getBoundingClientRect().right < leftStick.getBoundingClientRect().left){
+                document.querySelector('#scoreRight').innerHTML =
+                        parseInt(document.querySelector('#scoreRight').innerHTML) + 1;
+                ball.left = 50;
+                ball.moveX = 0.3;
+            }
+            if(ballDom.getBoundingClientRect().left > rightStick.getBoundingClientRect().right){
+                document.querySelector('#scoreLeft').innerHTML =
+                        parseInt(document.querySelector('#scoreLeft').innerHTML) + 1;
+                ball.left = 50;
+                ball.moveX = -0.3;
+            }
+    }, 16);
+
+    setInterval(function(){
+//        if(playerOneStick.size > 10) {
+//            playerOneStick.size -= 10;
+//        }
+        if(ball.moveX > 0)
+            ball.moveX = ball.moveX + 0.1;
+        else
+            ball.moveX = ball.moveX - 0.1;
+    }, 2000);
+
+    function doOverlap(rect1, rect2)
+    {
+        return rect1.left < rect2.right && rect1.right > rect2.left && rect1.top < rect2.bottom && rect1.bottom > rect2.top;
+    }
+
+</script>
+</body>
+</html>
